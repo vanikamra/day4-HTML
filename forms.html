@@ -1,0 +1,48 @@
+const myForm = document.getElementById("webform")
+const errorSpan = document.getElementById("nameError")
+const nameInput = document.getElementById("name")
+
+myForm.addEventListener("submit", async (event)=>{
+    event.preventDefault()
+    const isValid = validateForm()
+    if(isValid){
+        console.log("trying to fetch")
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameInput.value}`)
+        const data = await response.json()
+        createPokemoneCard(data)
+    }
+})
+function validateForm(){
+    clearError()
+    const submittedName = nameInput.value 
+    if (submittedName === ""){
+        inputError("Name is required")
+        return false
+    }else if (submittedName.length < 4){
+        inputError("Names must be four letters or longer")
+        return false
+    }else{
+        return true
+    }
+}
+function inputError(errorMessage){
+    errorSpan.innerHTML = errorMessage
+}
+function clearError(){
+    errorSpan.innerHTML = ""
+}
+
+const resultsList = document.querySelector("#results")
+async function createPokemoneCard(pokeData){
+    const $li = document.createElement('li');
+    const {name, moves, sprites} = pokeData
+    const pokeCard = `
+        <div class="card">
+            <h2>${name}</h2>
+            <img src="${sprites.front_default}" alt="${name}">
+            <p>${moves[0].move.name}</p>
+        </div>
+    `
+    $li.innerHTML = pokeCard
+    resultsList.appendChild($li)
+}

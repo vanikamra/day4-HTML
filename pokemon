@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        .error{
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <form id="webform">
+        <label for="name">Enter Name
+            <input type="text" name="name" id="name" placeholder="Jane Doe">
+        </label>
+        <span class="error" id="nameError"></span>
+        <button >submit</button>
+    </form>
+    <ul id="results"></ul>
+<script src="forms.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
