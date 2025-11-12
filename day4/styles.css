@@ -1,0 +1,31 @@
+/* Input field styling */
+input {
+  background-color: lightgray;
+  color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* When you click inside an input */
+input:focus {
+  background-color: #e0e0e0;
+  border-color: #004C99;
+}
+
+/* Button styling */
+button {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* When you hover over the button */
+button:hover {
+  background-color: #004C99;
+}
